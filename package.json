@@ -1,0 +1,30 @@
+{
+    "name": "insider-framework-vscode-snippets",
+    "displayName": "Insider Framework Visual Studio Code Snippets",
+    "description": "Insider Framework snippets for Visual Studio Code",
+    "version": "1.0.0",
+    "publisher": "Marcello Costa",
+    "icon": "icon.png",
+    "engines": {
+        "vscode": "^1.43.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "php",
+                "path": "./snippets/php-snippets.json"
+            },
+            {
+                "language": "sgv",
+                "path": "./snippets/sgv-snippets.json"
+            },
+            {
+                "language": "javascript",
+                "path": "./snippets/js-snippets.json"
+            }
+        ]
+    }
+}

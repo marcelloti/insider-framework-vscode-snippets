@@ -1,0 +1,9 @@
+{
+    "php-snippets": {
+        "prefix": "err",
+        "body": [
+            "\\KeyClass\\Error::errorRegister(\"${1}\");"
+        ],
+        "description": "Default error register"
+    }
+}
