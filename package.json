@@ -4,6 +4,10 @@
     "description": "Insider Framework snippets for Visual Studio Code",
     "version": "1.0.0",
     "publisher": "Marcello Costa",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/marcelloti/insider-framework-vscode-snippets"
+    },
     "icon": "icon.png",
     "engines": {
         "vscode": "^1.43.0"

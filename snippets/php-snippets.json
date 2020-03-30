@@ -1,9 +1,164 @@
 {
-    "php-snippets": {
+    "php-keyclass-error-standard": {
         "prefix": "err",
         "body": [
-            "\\KeyClass\\Error::errorRegister(\"${1}\");"
+            "\\KeyClass\\Error::errorRegister(${1});"
         ],
-        "description": "Default error register"
+        "description": "Default error KeyClass register"
+    },
+    "php-keyclass-error": {
+        "prefix": "era",
+        "body": [
+            "\\KeyClass\\Error::errorRegister('${1}', \"ATTACK_DETECTED\");"
+        ],
+        "description": "Attack error KeyClass register"
+    },
+    "php-keyclass-critical": {
+        "prefix": "erc",
+        "body": [
+            "\\KeyClass\\Error::errorRegister('${1}');"
+        ],
+        "description": "Critical error KeyClass register"
+    },
+    "php-keyclass-pre_condition_failed": {
+        "prefix": "erp",
+        "body": [
+            "\\KeyClass\\Error::errorRegister('${1}', \"JSON_PRE_CONDITION_FAILED\");"
+        ],
+        "description": "Json error KeyClass register"
+    },
+    "php-insert-query": {
+        "prefix": "insertquery",
+        "body": [
+            "\\$query = \"INSERT INTO TABLE SET \"",
+            "        . \"KEY = :val\"",
+            "        . \";\";",
+            "",
+            "\\$bindarray = array(",
+            "    'val' => \\$val",
+            ");",
+            "\\$result = \\$this->exec(\\$query, \\$bindarray);",
+            "",
+            "if (\\$result !== null){",
+            "    \\$KC_Error = new \\KeyClass\\KeyClass_Error();",
+            "    \\$KC_Error->ErrorRegister('Insert in database error', \"CRITICAL\");",
+            "}"
+        ],
+        "description": "Default error KeyClass register"
+    },
+    "php-delete-query": {
+        "prefix": "deletequery",
+        "body": [
+            "\\$query = \"DELETE FROM `TABLE` WHERE `ID` = :id\";",
+            "\\$bindarray = array(",
+            "    'id' => \\$id",
+            ");",
+            "",
+            "\\$result = \\$this->exec(\\$query, \\$bindarray);",
+            "",
+            "if (\\$result !== null){",
+            "    \\$KC_Error = new \\KeyClass\\KeyClass_Error();",
+            "    \\$KC_Error->ErrorRegister('Delete in database error', \"CRITICAL\");",
+            "}"
+        ]
+    },
+    "php-select-query": {
+        "prefix": "selectquery",
+        "body": [
+            "\\$query=\"SELECT * from TABLE \"",
+            "        .\"WHERE ID = :id\"; ",
+            "",
+            "\\$bindarray = array(",
+            "    'id' => \\$id",
+            ");",
+            "",
+            "\\$result=\\$this->select(\\$query, \\$bindarray);",
+            "",
+            "if (empty(\\$result)){",
+            "}"
+        ]
+    },
+    "php-update-query": {
+        "prefix": "updatequery",
+        "body": [
+            "\\$query = \"UPDATE TABLE SET \"",
+            "            . \"FIELD = :newValue \"",
+            "            . \"WHERE ID = :id\"",
+            "            . \";\";",
+            "",
+            "\\$bindarray = array(",
+            "    'id' => \\$id,",
+            "    'newValue' => \\$newValue",
+            ");",
+            "",
+            "\\$result = \\$this->exec(\\$query, \\$bindarray);",
+            "",
+            "if (\\$result !== null){",
+            "    \\KeyClass\\Error::errorRegister('Error on update query');",
+            "}"
+        ]
+    },
+    "php-puredatabasehelper-updateby": {
+        "prefix": "updateby",
+        "body": [
+            "\\$result = \\Helpers\\pureDatabaseHelper::updateBy(",
+            "    \\$this,",
+            "    \"table\",",
+            "    \\$searchData,",
+            "    \\$newData",
+            ");"
+        ]
+    },
+    "php-print-dump": {
+        "prefix": "pdump",
+        "body": [
+            "\\KeyClass\\Code::PrintDump(${1});",
+            "echo \"<br/>\";",
+            "die(\"FILE: \" . __FILE__ . \"<br/>LINE: \". __LINE__);"
+        ]
+    },
+    "php-request-model": {
+        "prefix": "requestmodel",
+        "body": [
+            "\\$ExampleModel=\\KeyClass\\Request::Model(\\$this->pack.'::ModelName', db_app);"
+        ]
+    },
+    "php-route-summary": {
+        "prefix": "routesum",
+        "body": [
+            "    /**",
+            "        Route description",
+            "       ",
+            "        @author Marcello Costa",
+            "        ",
+            "        @package Core",
+            "        ",
+            "        @Action(path=\"action/{something}?\")",
+            "        @Param(something=\"[a-z]\")",
+            "    */"
+        ]
+    },
+    "php-function-summary": {
+        "prefix": "sum",
+        "body": [
+            "/**",
+            "   Method description",
+            "",
+            "   @author Marcello Costa",
+            "",
+            "    @package Core",
+            "",
+            "    @param  type  $param    desc",
+            "",
+            "    @return  type  desc",
+            "*/"
+        ]
+    },
+    "var_dump": {
+        "prefix": "vdump",
+        "body": [
+            "var_dump(${1});",
+            "die(\"FILE: \" . __FILE__ . \"<br/>LINE: \" . __LINE__);"
+        ]
     }
 }
