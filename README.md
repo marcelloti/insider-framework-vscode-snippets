@@ -1,4 +1,4 @@
-# insider-framework-vscode-snippets README
+# insider-framework-vscode-snippets
 
 This is an extension that contains a bunch of snippets for use with Insider Framework in Visual Studio Code.
 
